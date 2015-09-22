@@ -145,6 +145,7 @@ def _update_with_config_file(file_path, sections, computed_settings):
 
     for key, value in itemsview(settings):
         access_key = key.replace('not_', '').lower()
+        access_key = key.replace('clobber_', '').lower()
         existing_value_type = type(default.get(access_key, ''))
         if existing_value_type in (list, tuple):
             # sections has fixed order values; no adding or substraction from any set

@@ -60,10 +60,10 @@ class SortImports(object):
         if not settings_path and file_path:
             settings_path = os.path.dirname(os.path.abspath(file_path))
         settings_path = settings_path or os.getcwd()
-
         self.config = settings.from_path(settings_path).copy()
         for key, value in itemsview(setting_overrides):
             access_key = key.replace('not_', '').lower()
+            access_key = key.replace('clobber_', '').lower()
             # The sections config needs to retain order and can't be converted to a set.
             if access_key != 'sections' and type(self.config.get(access_key)) in (list, tuple):
                 if key.startswith('not_'):
