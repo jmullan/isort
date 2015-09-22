@@ -68,6 +68,8 @@ class SortImports(object):
             if access_key != 'sections' and type(self.config.get(access_key)) in (list, tuple):
                 if key.startswith('not_'):
                     self.config[access_key] = list(set(self.config[access_key]).difference(value))
+                elif key.startswith('clobber_'):
+                    self.config[access_key] = list(value)
                 else:
                     self.config[access_key] = list(set(self.config[access_key]).union(value))
             else:
