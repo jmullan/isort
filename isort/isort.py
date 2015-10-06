@@ -842,7 +842,7 @@ class SortImports(object):
                         if placed_module == '':
                             print(
                                 "WARNING: could not place module {0} of line {1} --"
-                                " Do you need to define a default section?".format(import_from, line)
+                                " Do you need to define a default section?".format(module, line)
                             )
                         self.imports[placed_module][import_type].add(module)
 
